@@ -9,27 +9,79 @@
 /* Begin PBXBuildFile section */
 		3ADC93D32C520A6C005D102D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC93D22C520A6C005D102D /* AppDelegate.swift */; };
 		3ADC93D52C520A6C005D102D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC93D42C520A6C005D102D /* SceneDelegate.swift */; };
-		3ADC93D72C520A6C005D102D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC93D62C520A6C005D102D /* ViewController.swift */; };
 		3ADC93DA2C520A6C005D102D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3ADC93D92C520A6C005D102D /* Base */; };
 		3ADC93DC2C520A6F005D102D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ADC93DB2C520A6F005D102D /* Assets.xcassets */; };
 		3ADC93DF2C520A6F005D102D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3ADC93DE2C520A6F005D102D /* Base */; };
 		3ADC93E72C520B47005D102D /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3ADC93E62C520B47005D102D /* config.plist */; };
+		3ADC93F02C520C84005D102D /* Datasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC93EF2C520C84005D102D /* Datasource.swift */; };
+		3ADC93F82C521301005D102D /* BlockBusterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC93F72C521301005D102D /* BlockBusterTests.swift */; };
+		3ADC93FF2C521636005D102D /* FilmDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC93FE2C521636005D102D /* FilmDataModel.swift */; };
+		3ADC94012C521951005D102D /* FilmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC94002C521951005D102D /* FilmModel.swift */; };
+		3ADC94032C521A48005D102D /* FilmModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC94022C521A48005D102D /* FilmModelMapper.swift */; };
+		3ADC94052C521B4A005D102D /* FilmIntegrationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC94042C521B4A005D102D /* FilmIntegrationTest.swift */; };
+		3ADC94072C521CBE005D102D /* GetFilmUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC94062C521CBE005D102D /* GetFilmUseCase.swift */; };
+		3ADC94092C521F7B005D102D /* FetchPopularFilmsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC94082C521F7B005D102D /* FetchPopularFilmsUseCase.swift */; };
+		3ADC940B2C5223E6005D102D /* FilmTableViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC940A2C5223E6005D102D /* FilmTableViewVC.swift */; };
+		3ADC94112C522E28005D102D /* Mocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC94102C522E28005D102D /* Mocks.swift */; };
+		3ADC94132C523415005D102D /* FilmModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC94122C523415005D102D /* FilmModelTest.swift */; };
+		3ADC94152C52364F005D102D /* FilmDataModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC94142C52364F005D102D /* FilmDataModelTests.swift */; };
+		3ADC94172C523E68005D102D /* FilmResultModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC94162C523E68005D102D /* FilmResultModelTests.swift */; };
+		3ADC941A2C523FDB005D102D /* FilmModelMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC94192C523FDB005D102D /* FilmModelMapperTests.swift */; };
+		3ADC941E2C52450F005D102D /* FilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC941C2C52450F005D102D /* FilmCell.swift */; };
+		3ADC941F2C52450F005D102D /* FilmCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ADC941D2C52450F005D102D /* FilmCell.xib */; };
+		3ADC94232C526CEB005D102D /* FilmSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC94222C526CEB005D102D /* FilmSearchVC.swift */; };
+		3ADC94252C5271AF005D102D /* FilmMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC94242C5271AF005D102D /* FilmMain.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3ADC93F92C521301005D102D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ADC93C72C520A6C005D102D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3ADC93CE2C520A6C005D102D;
+			remoteInfo = BlockBuster;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3ADC93CF2C520A6C005D102D /* BlockBuster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockBuster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADC93D22C520A6C005D102D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ADC93D42C520A6C005D102D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3ADC93D62C520A6C005D102D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3ADC93D92C520A6C005D102D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3ADC93DB2C520A6F005D102D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3ADC93DE2C520A6F005D102D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3ADC93E02C520A6F005D102D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3ADC93E62C520B47005D102D /* config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
+		3ADC93EF2C520C84005D102D /* Datasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datasource.swift; sourceTree = "<group>"; };
+		3ADC93F52C521301005D102D /* BlockBusterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlockBusterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ADC93F72C521301005D102D /* BlockBusterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockBusterTests.swift; sourceTree = "<group>"; };
+		3ADC93FE2C521636005D102D /* FilmDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDataModel.swift; sourceTree = "<group>"; };
+		3ADC94002C521951005D102D /* FilmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModel.swift; sourceTree = "<group>"; };
+		3ADC94022C521A48005D102D /* FilmModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModelMapper.swift; sourceTree = "<group>"; };
+		3ADC94042C521B4A005D102D /* FilmIntegrationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmIntegrationTest.swift; sourceTree = "<group>"; };
+		3ADC94062C521CBE005D102D /* GetFilmUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFilmUseCase.swift; sourceTree = "<group>"; };
+		3ADC94082C521F7B005D102D /* FetchPopularFilmsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPopularFilmsUseCase.swift; sourceTree = "<group>"; };
+		3ADC940A2C5223E6005D102D /* FilmTableViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmTableViewVC.swift; sourceTree = "<group>"; };
+		3ADC94102C522E28005D102D /* Mocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mocks.swift; sourceTree = "<group>"; };
+		3ADC94122C523415005D102D /* FilmModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModelTest.swift; sourceTree = "<group>"; };
+		3ADC94142C52364F005D102D /* FilmDataModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmDataModelTests.swift; sourceTree = "<group>"; };
+		3ADC94162C523E68005D102D /* FilmResultModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmResultModelTests.swift; sourceTree = "<group>"; };
+		3ADC94192C523FDB005D102D /* FilmModelMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmModelMapperTests.swift; sourceTree = "<group>"; };
+		3ADC941C2C52450F005D102D /* FilmCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCell.swift; sourceTree = "<group>"; };
+		3ADC941D2C52450F005D102D /* FilmCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmCell.xib; sourceTree = "<group>"; };
+		3ADC94222C526CEB005D102D /* FilmSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmSearchVC.swift; sourceTree = "<group>"; };
+		3ADC94242C5271AF005D102D /* FilmMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmMain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		3ADC93CC2C520A6C005D102D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ADC93F22C521301005D102D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -43,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				3ADC93D12C520A6C005D102D /* BlockBuster */,
+				3ADC93F62C521301005D102D /* BlockBusterTests */,
 				3ADC93D02C520A6C005D102D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				3ADC93CF2C520A6C005D102D /* BlockBuster.app */,
+				3ADC93F52C521301005D102D /* BlockBusterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,14 +114,126 @@
 			children = (
 				3ADC93D22C520A6C005D102D /* AppDelegate.swift */,
 				3ADC93D42C520A6C005D102D /* SceneDelegate.swift */,
-				3ADC93D62C520A6C005D102D /* ViewController.swift */,
-				3ADC93D82C520A6C005D102D /* Main.storyboard */,
-				3ADC93E62C520B47005D102D /* config.plist */,
-				3ADC93DB2C520A6F005D102D /* Assets.xcassets */,
-				3ADC93DD2C520A6F005D102D /* LaunchScreen.storyboard */,
+				3ADC93ED2C520C46005D102D /* Datasource */,
+				3ADC93EC2C520C3E005D102D /* UseCase */,
+				3ADC93E82C520C1A005D102D /* Controller */,
+				3ADC93E92C520C24005D102D /* View */,
+				3ADC93EA2C520C2A005D102D /* Model */,
+				3ADC93EE2C520C65005D102D /* Resource */,
 				3ADC93E02C520A6F005D102D /* Info.plist */,
+				3ADC93E62C520B47005D102D /* config.plist */,
 			);
 			path = BlockBuster;
+			sourceTree = "<group>";
+		};
+		3ADC93E82C520C1A005D102D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC940A2C5223E6005D102D /* FilmTableViewVC.swift */,
+				3ADC941B2C5244EB005D102D /* FilmCell */,
+				3ADC94222C526CEB005D102D /* FilmSearchVC.swift */,
+				3ADC94242C5271AF005D102D /* FilmMain.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3ADC93E92C520C24005D102D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC93DD2C520A6F005D102D /* LaunchScreen.storyboard */,
+				3ADC93D82C520A6C005D102D /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3ADC93EA2C520C2A005D102D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC93FE2C521636005D102D /* FilmDataModel.swift */,
+				3ADC94022C521A48005D102D /* FilmModelMapper.swift */,
+				3ADC94002C521951005D102D /* FilmModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3ADC93EC2C520C3E005D102D /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC94062C521CBE005D102D /* GetFilmUseCase.swift */,
+				3ADC94082C521F7B005D102D /* FetchPopularFilmsUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		3ADC93ED2C520C46005D102D /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC93EF2C520C84005D102D /* Datasource.swift */,
+			);
+			path = Datasource;
+			sourceTree = "<group>";
+		};
+		3ADC93EE2C520C65005D102D /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC93DB2C520A6F005D102D /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		3ADC93F62C521301005D102D /* BlockBusterTests */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC940F2C522E1E005D102D /* Mocks */,
+				3ADC940D2C522E0C005D102D /* UnitTest */,
+				3ADC940C2C522E04005D102D /* IntegrationTest */,
+			);
+			path = BlockBusterTests;
+			sourceTree = "<group>";
+		};
+		3ADC940C2C522E04005D102D /* IntegrationTest */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC94042C521B4A005D102D /* FilmIntegrationTest.swift */,
+			);
+			path = IntegrationTest;
+			sourceTree = "<group>";
+		};
+		3ADC940D2C522E0C005D102D /* UnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC93F72C521301005D102D /* BlockBusterTests.swift */,
+				3ADC94192C523FDB005D102D /* FilmModelMapperTests.swift */,
+				3ADC94182C523E94005D102D /* ModelTest */,
+			);
+			path = UnitTest;
+			sourceTree = "<group>";
+		};
+		3ADC940F2C522E1E005D102D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC94102C522E28005D102D /* Mocks.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		3ADC94182C523E94005D102D /* ModelTest */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC94122C523415005D102D /* FilmModelTest.swift */,
+				3ADC94162C523E68005D102D /* FilmResultModelTests.swift */,
+				3ADC94142C52364F005D102D /* FilmDataModelTests.swift */,
+			);
+			path = ModelTest;
+			sourceTree = "<group>";
+		};
+		3ADC941B2C5244EB005D102D /* FilmCell */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC941C2C52450F005D102D /* FilmCell.swift */,
+				3ADC941D2C52450F005D102D /* FilmCell.xib */,
+			);
+			path = FilmCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +256,24 @@
 			productReference = 3ADC93CF2C520A6C005D102D /* BlockBuster.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3ADC93F42C521301005D102D /* BlockBusterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3ADC93FB2C521301005D102D /* Build configuration list for PBXNativeTarget "BlockBusterTests" */;
+			buildPhases = (
+				3ADC93F12C521301005D102D /* Sources */,
+				3ADC93F22C521301005D102D /* Frameworks */,
+				3ADC93F32C521301005D102D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3ADC93FA2C521301005D102D /* PBXTargetDependency */,
+			);
+			name = BlockBusterTests;
+			productName = BlockBusterTests;
+			productReference = 3ADC93F52C521301005D102D /* BlockBusterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -102,6 +286,10 @@
 				TargetAttributes = {
 					3ADC93CE2C520A6C005D102D = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					3ADC93F42C521301005D102D = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 3ADC93CE2C520A6C005D102D;
 					};
 				};
 			};
@@ -119,6 +307,7 @@
 			projectRoot = "";
 			targets = (
 				3ADC93CE2C520A6C005D102D /* BlockBuster */,
+				3ADC93F42C521301005D102D /* BlockBusterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -128,10 +317,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADC941F2C52450F005D102D /* FilmCell.xib in Resources */,
 				3ADC93E72C520B47005D102D /* config.plist in Resources */,
 				3ADC93DC2C520A6F005D102D /* Assets.xcassets in Resources */,
 				3ADC93DF2C520A6F005D102D /* Base in Resources */,
 				3ADC93DA2C520A6C005D102D /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ADC93F32C521301005D102D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,13 +339,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3ADC93D72C520A6C005D102D /* ViewController.swift in Sources */,
+				3ADC94072C521CBE005D102D /* GetFilmUseCase.swift in Sources */,
+				3ADC94032C521A48005D102D /* FilmModelMapper.swift in Sources */,
+				3ADC94012C521951005D102D /* FilmModel.swift in Sources */,
+				3ADC93FF2C521636005D102D /* FilmDataModel.swift in Sources */,
 				3ADC93D32C520A6C005D102D /* AppDelegate.swift in Sources */,
+				3ADC940B2C5223E6005D102D /* FilmTableViewVC.swift in Sources */,
+				3ADC94092C521F7B005D102D /* FetchPopularFilmsUseCase.swift in Sources */,
+				3ADC94232C526CEB005D102D /* FilmSearchVC.swift in Sources */,
+				3ADC93F02C520C84005D102D /* Datasource.swift in Sources */,
+				3ADC94252C5271AF005D102D /* FilmMain.swift in Sources */,
 				3ADC93D52C520A6C005D102D /* SceneDelegate.swift in Sources */,
+				3ADC941E2C52450F005D102D /* FilmCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ADC93F12C521301005D102D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ADC94172C523E68005D102D /* FilmResultModelTests.swift in Sources */,
+				3ADC94052C521B4A005D102D /* FilmIntegrationTest.swift in Sources */,
+				3ADC94152C52364F005D102D /* FilmDataModelTests.swift in Sources */,
+				3ADC941A2C523FDB005D102D /* FilmModelMapperTests.swift in Sources */,
+				3ADC93F82C521301005D102D /* BlockBusterTests.swift in Sources */,
+				3ADC94112C522E28005D102D /* Mocks.swift in Sources */,
+				3ADC94132C523415005D102D /* FilmModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3ADC93FA2C521301005D102D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3ADC93CE2C520A6C005D102D /* BlockBuster */;
+			targetProxy = 3ADC93F92C521301005D102D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3ADC93D82C520A6C005D102D /* Main.storyboard */ = {
@@ -345,6 +573,42 @@
 			};
 			name = Release;
 		};
+		3ADC93FC2C521301005D102D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6D7K8WYW6Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adrianaranda.BlockBusterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlockBuster.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BlockBuster";
+			};
+			name = Debug;
+		};
+		3ADC93FD2C521301005D102D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6D7K8WYW6Q;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adrianaranda.BlockBusterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BlockBuster.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BlockBuster";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -362,6 +626,15 @@
 			buildConfigurations = (
 				3ADC93E42C520A6F005D102D /* Debug */,
 				3ADC93E52C520A6F005D102D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3ADC93FB2C521301005D102D /* Build configuration list for PBXNativeTarget "BlockBusterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ADC93FC2C521301005D102D /* Debug */,
+				3ADC93FD2C521301005D102D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
