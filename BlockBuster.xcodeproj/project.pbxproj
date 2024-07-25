@@ -13,6 +13,7 @@
 		3ADC93DA2C520A6C005D102D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3ADC93D92C520A6C005D102D /* Base */; };
 		3ADC93DC2C520A6F005D102D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ADC93DB2C520A6F005D102D /* Assets.xcassets */; };
 		3ADC93DF2C520A6F005D102D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3ADC93DE2C520A6F005D102D /* Base */; };
+		3ADC93E72C520B47005D102D /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3ADC93E62C520B47005D102D /* config.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		3ADC93DB2C520A6F005D102D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3ADC93DE2C520A6F005D102D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3ADC93E02C520A6F005D102D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3ADC93E62C520B47005D102D /* config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				3ADC93D42C520A6C005D102D /* SceneDelegate.swift */,
 				3ADC93D62C520A6C005D102D /* ViewController.swift */,
 				3ADC93D82C520A6C005D102D /* Main.storyboard */,
+				3ADC93E62C520B47005D102D /* config.plist */,
 				3ADC93DB2C520A6F005D102D /* Assets.xcassets */,
 				3ADC93DD2C520A6F005D102D /* LaunchScreen.storyboard */,
 				3ADC93E02C520A6F005D102D /* Info.plist */,
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ADC93E72C520B47005D102D /* config.plist in Resources */,
 				3ADC93DC2C520A6F005D102D /* Assets.xcassets in Resources */,
 				3ADC93DF2C520A6F005D102D /* Base in Resources */,
 				3ADC93DA2C520A6C005D102D /* Base in Resources */,
