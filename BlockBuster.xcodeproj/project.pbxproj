@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A963EEF2C5A5CAE0034B61D /* FilmCollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A963EEE2C5A5CAE0034B61D /* FilmCollectionViewHeader.xib */; };
+		3A963EF12C5A5E950034B61D /* FilmCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A963EF02C5A5E950034B61D /* FilmCollectionViewHeader.swift */; };
+		3AA794282C59DDF500C90A89 /* FilmCollectionViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA794272C59DDF500C90A89 /* FilmCollectionViewVC.swift */; };
+		3AA7942B2C59DF4000C90A89 /* FilmCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AA7942A2C59DF4000C90A89 /* FilmCollectionCell.xib */; };
+		3AA7942C2C59DF4000C90A89 /* FilmCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA794292C59DF4000C90A89 /* FilmCollectionCell.swift */; };
+		3AA7942E2C59E1B800C90A89 /* FetchFilmImageUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA7942D2C59E1B800C90A89 /* FetchFilmImageUseCase.swift */; };
 		3ADC93D32C520A6C005D102D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC93D22C520A6C005D102D /* AppDelegate.swift */; };
 		3ADC93D52C520A6C005D102D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADC93D42C520A6C005D102D /* SceneDelegate.swift */; };
 		3ADC93DA2C520A6C005D102D /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 3ADC93D92C520A6C005D102D /* Base */; };
@@ -44,6 +50,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A963EEE2C5A5CAE0034B61D /* FilmCollectionViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmCollectionViewHeader.xib; sourceTree = "<group>"; };
+		3A963EF02C5A5E950034B61D /* FilmCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionViewHeader.swift; sourceTree = "<group>"; };
+		3AA794272C59DDF500C90A89 /* FilmCollectionViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionViewVC.swift; sourceTree = "<group>"; };
+		3AA794292C59DF4000C90A89 /* FilmCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmCollectionCell.swift; sourceTree = "<group>"; };
+		3AA7942A2C59DF4000C90A89 /* FilmCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilmCollectionCell.xib; sourceTree = "<group>"; };
+		3AA7942D2C59E1B800C90A89 /* FetchFilmImageUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchFilmImageUseCase.swift; sourceTree = "<group>"; };
 		3ADC93CF2C520A6C005D102D /* BlockBuster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockBuster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3ADC93D22C520A6C005D102D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3ADC93D42C520A6C005D102D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +103,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A963EE62C5A5B860034B61D /* FilmCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				3AA794272C59DDF500C90A89 /* FilmCollectionViewVC.swift */,
+				3A963EEB2C5A5C790034B61D /* Header */,
+				3A963EE72C5A5B920034B61D /* FilmCollectionViewCell */,
+			);
+			path = FilmCollectionView;
+			sourceTree = "<group>";
+		};
+		3A963EE72C5A5B920034B61D /* FilmCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				3AA794292C59DF4000C90A89 /* FilmCollectionCell.swift */,
+				3AA7942A2C59DF4000C90A89 /* FilmCollectionCell.xib */,
+			);
+			path = FilmCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		3A963EE82C5A5BA00034B61D /* FilmTableView */ = {
+			isa = PBXGroup;
+			children = (
+				3ADC940A2C5223E6005D102D /* FilmTableViewVC.swift */,
+				3ADC941B2C5244EB005D102D /* FilmCell */,
+			);
+			path = FilmTableView;
+			sourceTree = "<group>";
+		};
+		3A963EEB2C5A5C790034B61D /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				3A963EEE2C5A5CAE0034B61D /* FilmCollectionViewHeader.xib */,
+				3A963EF02C5A5E950034B61D /* FilmCollectionViewHeader.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		3ADC93C62C520A6C005D102D = {
 			isa = PBXGroup;
 			children = (
@@ -129,8 +178,8 @@
 		3ADC93E82C520C1A005D102D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				3ADC940A2C5223E6005D102D /* FilmTableViewVC.swift */,
-				3ADC941B2C5244EB005D102D /* FilmCell */,
+				3A963EE82C5A5BA00034B61D /* FilmTableView */,
+				3A963EE62C5A5B860034B61D /* FilmCollectionView */,
 				3ADC94222C526CEB005D102D /* FilmSearchVC.swift */,
 				3ADC94242C5271AF005D102D /* FilmMain.swift */,
 			);
@@ -161,6 +210,7 @@
 			children = (
 				3ADC94062C521CBE005D102D /* GetFilmUseCase.swift */,
 				3ADC94082C521F7B005D102D /* FetchPopularFilmsUseCase.swift */,
+				3AA7942D2C59E1B800C90A89 /* FetchFilmImageUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -319,9 +369,11 @@
 			files = (
 				3ADC941F2C52450F005D102D /* FilmCell.xib in Resources */,
 				3ADC93E72C520B47005D102D /* config.plist in Resources */,
+				3A963EEF2C5A5CAE0034B61D /* FilmCollectionViewHeader.xib in Resources */,
 				3ADC93DC2C520A6F005D102D /* Assets.xcassets in Resources */,
 				3ADC93DF2C520A6F005D102D /* Base in Resources */,
 				3ADC93DA2C520A6C005D102D /* Base in Resources */,
+				3AA7942B2C59DF4000C90A89 /* FilmCollectionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +392,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3ADC94072C521CBE005D102D /* GetFilmUseCase.swift in Sources */,
+				3A963EF12C5A5E950034B61D /* FilmCollectionViewHeader.swift in Sources */,
+				3AA7942E2C59E1B800C90A89 /* FetchFilmImageUseCase.swift in Sources */,
 				3ADC94032C521A48005D102D /* FilmModelMapper.swift in Sources */,
 				3ADC94012C521951005D102D /* FilmModel.swift in Sources */,
 				3ADC93FF2C521636005D102D /* FilmDataModel.swift in Sources */,
@@ -348,7 +402,9 @@
 				3ADC94092C521F7B005D102D /* FetchPopularFilmsUseCase.swift in Sources */,
 				3ADC94232C526CEB005D102D /* FilmSearchVC.swift in Sources */,
 				3ADC93F02C520C84005D102D /* Datasource.swift in Sources */,
+				3AA794282C59DDF500C90A89 /* FilmCollectionViewVC.swift in Sources */,
 				3ADC94252C5271AF005D102D /* FilmMain.swift in Sources */,
+				3AA7942C2C59DF4000C90A89 /* FilmCollectionCell.swift in Sources */,
 				3ADC93D52C520A6C005D102D /* SceneDelegate.swift in Sources */,
 				3ADC941E2C52450F005D102D /* FilmCell.swift in Sources */,
 			);

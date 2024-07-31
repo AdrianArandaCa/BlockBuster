@@ -18,8 +18,9 @@ final class FilmIntegrationTest: XCTestCase {
         
         let getFilmUseCase = GetFilmUseCase(datasource: datasource)
         let fetchPopularFilmsUseCase = FetchPopularFilmsUseCase(datasource: datasource)
+        let fetchFilmImageUseCase = FetchFilmImageUseCase(datasource: datasource)
         
-        sut = FilmMain(fetchPopularFilmsUseCase: fetchPopularFilmsUseCase, getFilmUseCase: getFilmUseCase)
+        sut = FilmMain(fetchPopularFilmsUseCase: fetchPopularFilmsUseCase, fetchFilmImageUseCase: fetchFilmImageUseCase, getFilmUseCase: getFilmUseCase)
     }
 
     func testFetchPopularFilms() async throws {
@@ -70,4 +71,17 @@ final class FilmIntegrationTest: XCTestCase {
         }
     }
 
+    func testFetchFilmImage() async throws {
+        //Given
+        let url = "https://image.tmdb.org/t/p/w500/oTiQdzBOP5biNvzvrSPAvPxiSKH.jpg"
+        //When
+        do {
+            let image = try await sut.fetchFilmImageUseCase.fetchFilmImage(url: url)
+            //Then
+            XCTAssertNotNil(image)
+        } catch {
+            print("\(error.localizedDescription)")
+            XCTFail()
+        }
+    }
 }

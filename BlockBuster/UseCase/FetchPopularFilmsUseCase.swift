@@ -8,7 +8,9 @@
 import Foundation
 
 protocol FetchPopularFilmsProtocol {
-    func fetchPopularFilms () async throws -> [FilmModel]
+//    func fetchPopularFilms () async throws -> [FilmModel]
+    func fetchPopularFilms() async throws -> FilmDataModel?
+    func loadMoreFilms(nextPage: Int) async throws -> FilmDataModel?
 }
 
 struct FetchPopularFilmsUseCase: FetchPopularFilmsProtocol {
@@ -18,15 +20,25 @@ struct FetchPopularFilmsUseCase: FetchPopularFilmsProtocol {
         self.datasource = datasource
     }
     
-    func fetchPopularFilms () async throws -> [FilmModel] {
+    func fetchPopularFilms() async throws -> FilmDataModel? {
         do {
-            if let popularFilmsSource = try await datasource.fetchPopularFilms() {
-                return popularFilmsSource.results.map { FilmModelMapper.shared.mapFilmResponsesToModel(model: $0)}
-            } else {
-                return []
+            if let filmDataModel = try await datasource.fetchPopularFilms() {
+                return filmDataModel
             }
-        } catch let error {
+        } catch {
             throw error
         }
+        return nil
+    }
+    
+    func loadMoreFilms(nextPage: Int) async throws -> FilmDataModel? {
+        do {
+            if let filmDataModel = try await datasource.loadMoreFilms(nextPage: nextPage) {
+                return filmDataModel
+            }
+        } catch {
+            throw error
+        }
+        return nil
     }
 }

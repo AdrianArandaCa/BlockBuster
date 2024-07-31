@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct FilmModel {
     let isAdult: Bool
@@ -19,8 +20,9 @@ struct FilmModel {
     let title: String
     let voteAverage: Double
     let voteCount: Int
+    var image: UIImage?
     
     static var empty: Self {
-        .init(isAdult: false, backdrop: "", id: 0, originalTitle: "", overview: "", popularity: 0.0, poster: "", releaseDate: "", title: "", voteAverage: 0.0, voteCount: 0)
+        .init(isAdult: false, backdrop: "", id: 0, originalTitle: "", overview: "", popularity: 0.0, poster: "", releaseDate: "", title: "", voteAverage: 0.0, voteCount: 0, image: nil)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum DataSourceError: Error {
     case invalidURL
@@ -13,11 +14,14 @@ enum DataSourceError: Error {
     case invalidResponse
     case decodingError(Error)
     case apiKeyNotFound
+    case invalidImage
 }
 
 protocol DatasourceProtocol {
     func getFilm(filmName: String, includeAdult: Bool) async throws -> FilmDataModel?
     func fetchPopularFilms() async throws -> FilmDataModel?
+    func fetchImageFilm(imageURL: String) async throws -> UIImage
+    func loadMoreFilms(nextPage: Int) async throws -> FilmDataModel?
 }
 
 final class Datasource: DatasourceProtocol {
@@ -29,8 +33,9 @@ final class Datasource: DatasourceProtocol {
         case urlQuery = "/search/movie?query="
         case urlIncludeAdult = "&include_adult="
         case urlLanguage = "&language=es-ES"
-        case baseImageURL = "https://image.tmdb.org/t/p"
+        case baseImageURL = "https://image.tmdb.org/t/p/w500"
         case apiKey = "&api_key="
+        case pageURL = "&page="
     }
     
     @MainActor
@@ -91,6 +96,52 @@ final class Datasource: DatasourceProtocol {
         } catch {
             print(error.localizedDescription)
             throw error
+        }
+    }
+    
+    @MainActor
+    func loadMoreFilms(nextPage: Int) async throws -> FilmDataModel? {
+        do {
+            let apikey = try getApiKey()
+            guard let url = URL(string: String(format:"%@%@%@%d%@%@",
+                                               URLInputs.baseURL.rawValue,
+                                               URLInputs.popularURL.rawValue,
+                                               URLInputs.pageURL.rawValue,
+                                               nextPage,
+                                               URLInputs.apiKey.rawValue,
+                                               apikey)) else { throw DataSourceError.invalidURL }
+            do {
+                let (data, response) = try await URLSession.shared.data(from: url)
+                guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw DataSourceError.invalidResponse }
+                do {
+                    let filmsDataModel = try JSONDecoder().decode(FilmDataModel.self, from: data)
+                    print("\(filmsDataModel)")
+                    return filmsDataModel
+                } catch {
+                    throw DataSourceError.networkError(error)
+                }
+            } catch {
+                throw DataSourceError.decodingError(error)
+            }
+            
+        } catch {
+            print(error.localizedDescription)
+            throw error
+        }
+    }
+    
+    @MainActor
+    func fetchImageFilm(imageURL: String) async throws -> UIImage {
+        guard let url = URL(string:String(format:"%@%@",URLInputs.baseImageURL.rawValue, imageURL)) else {
+            throw DataSourceError.invalidURL
+        }
+        do {
+            let (data, response) = try await URLSession.shared.data(from: url)
+            guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw DataSourceError.invalidResponse }
+            guard let image = UIImage(data: data) else { throw DataSourceError.invalidImage }
+            return image
+        } catch {
+            throw DataSourceError.decodingError(error)
         }
     }
     

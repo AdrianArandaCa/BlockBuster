@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct FilmModelMapper {
     static let shared = FilmModelMapper()

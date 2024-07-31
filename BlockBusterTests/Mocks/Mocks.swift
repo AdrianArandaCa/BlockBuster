@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 @testable import BlockBuster
 
 let mockFilmResult = FilmResult.init(adult: true,
@@ -129,5 +130,20 @@ struct GetFilmUseCaseMock : GetFilmProtocol {
         ]
         mockDatasource.append(contentsOf: films)
         return mockDatasource
+    }
+}
+
+struct FetchFilmImageCaseMock: FetchFilmImageProtocol {
+    var mockImage: UIImage?
+    var mockError: Error?
+    
+    func fetchFilmImage(url: String) async throws -> UIImage {
+        if let error = mockError {
+            throw error
+        }
+        if let image = mockImage {
+            return image
+        }
+        throw DataSourceError.invalidImage
     }
 }

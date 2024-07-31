@@ -19,7 +19,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="SEO-9E-Cmc" kind="relationship" relationship="viewControllers" id="Sg0-dS-17j"/>
-                        <segue destination="fr0-XZ-1oD" kind="relationship" relationship="viewControllers" id="hUB-Zc-ts7"/>
+                        <segue destination="hgj-Fd-blD" kind="relationship" relationship="viewControllers" id="36Z-rb-OGy"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GJR-Eh-INV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -156,7 +156,7 @@
                                 </connections>
                             </tableView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GHt-uU-VLd">
-                                <rect key="frame" x="175.66666666666666" y="403.66666666666669" width="42" height="21"/>
+                                <rect key="frame" x="175.66666666666666" y="428" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -184,6 +184,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7tm-dk-6cS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="118" y="-219"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Bqh-DI-ihY">
+            <objects>
+                <viewController storyboardIdentifier="FilmCollectionViewVC" id="hgj-Fd-blD" customClass="FilmCollectionViewVC" customModule="BlockBuster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Px3-JJ-hbk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ulQ-iB-Fgf">
+                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bhF-zt-hKd">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="hgj-Fd-blD" id="Xaf-Gv-JMb"/>
+                                    <outlet property="delegate" destination="hgj-Fd-blD" id="FQp-Ie-Jqy"/>
+                                </connections>
+                            </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yn-Jc-FIF">
+                                <rect key="frame" x="175.66666666666666" y="403.66666666666669" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="1bV-cm-Qa0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1bV-cm-Qa0" firstAttribute="bottom" secondItem="ulQ-iB-Fgf" secondAttribute="bottom" id="0LZ-SG-h4J"/>
+                            <constraint firstItem="ulQ-iB-Fgf" firstAttribute="leading" secondItem="1bV-cm-Qa0" secondAttribute="leading" id="8DF-By-4Ug"/>
+                            <constraint firstItem="1Yn-Jc-FIF" firstAttribute="centerY" secondItem="1bV-cm-Qa0" secondAttribute="centerY" id="IdD-5u-CGx"/>
+                            <constraint firstItem="1bV-cm-Qa0" firstAttribute="trailing" secondItem="ulQ-iB-Fgf" secondAttribute="trailing" id="RsJ-gP-bhX"/>
+                            <constraint firstItem="ulQ-iB-Fgf" firstAttribute="top" secondItem="1bV-cm-Qa0" secondAttribute="top" id="iNt-ml-TCw"/>
+                            <constraint firstItem="1Yn-Jc-FIF" firstAttribute="centerX" secondItem="1bV-cm-Qa0" secondAttribute="centerX" id="ypb-Lm-dgC"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="cIW-9F-BlG"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="393" height="852"/>
+                    <connections>
+                        <outlet property="collectionView" destination="ulQ-iB-Fgf" id="PWC-ZC-bwG"/>
+                        <outlet property="noElementLabel" destination="1Yn-Jc-FIF" id="V39-YF-klG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3y8-7R-6Bg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1100" y="-218"/>
         </scene>
     </scenes>
     <resources>
