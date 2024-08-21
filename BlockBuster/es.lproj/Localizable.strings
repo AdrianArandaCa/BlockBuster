@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  BlockBuster
+
+  Created by Adrian Aranda Campanario on 21/8/24.
+  
+*/
+
+"POPULAR" = "Populares";
+"SEARCH" = "Búsqueda";
+"NO_ELEMENTS" = "No hay elementos";
+"SEARCH_FILM" = "Buscar pelicula";
+"SEARCH_FILM_TITLE" = "Buscar título de pelicula";
+"HOME" = "Principal";
+"PLAY_TRAILER" = "Iniciar trailer";
+"ABOUT_MOVIE" = "Sobre la película";

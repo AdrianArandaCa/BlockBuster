@@ -29,9 +29,8 @@ final class FilmIntegrationTest: XCTestCase {
         //When
         do {
             let films = try await sut.fetchPopularFilmsUseCase.fetchPopularFilms()
-            print(films)
             //Then
-            XCTAssertNotEqual(films.count, 0)
+            XCTAssertNotNil(films)
         } catch let error {
             print("\(error.localizedDescription)")
             XCTFail()
@@ -79,6 +78,21 @@ final class FilmIntegrationTest: XCTestCase {
             let image = try await sut.fetchFilmImageUseCase.fetchFilmImage(url: url)
             //Then
             XCTAssertNotNil(image)
+        } catch {
+            print("\(error.localizedDescription)")
+            XCTFail()
+        }
+    }
+    
+    func testLoadMoreFilms() async throws {
+        //Given
+        
+        //When
+        do {
+            let film = try await sut.fetchPopularFilmsUseCase.loadMoreFilms(nextPage: 2)
+            //Then
+            XCTAssertEqual(film?.page, 2)
+            XCTAssertNotNil(film)
         } catch {
             print("\(error.localizedDescription)")
             XCTFail()

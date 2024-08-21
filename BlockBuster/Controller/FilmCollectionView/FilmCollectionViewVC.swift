@@ -14,7 +14,7 @@ enum FilmKindList {
 
 protocol FilmCollectionViewDelegate: AnyObject {
     func filmPressed()
-    func loadMoreData()
+    func loadMoreData(kindList: FilmKindList)
     var isLoading: Bool { get }
 }
 
@@ -23,9 +23,7 @@ class FilmCollectionViewVC: UIViewController {
     @IBOutlet weak var noElementLabel: UILabel!
     var films: [FilmModel] = []
     weak var delegate: FilmCollectionViewDelegate?
-    let heightCell = 100
-    let widthCell = 100
-    let spacing = CGFloat(10.0)
+    let spacing = CGFloat(3.0)
     var kindList: FilmKindList = .popular
     
     override func viewDidLoad() {
@@ -34,11 +32,18 @@ class FilmCollectionViewVC: UIViewController {
         self.collectionView.dataSource = self
         self.collectionView.register(UINib(nibName: "FilmCollectionCell", bundle: nil), forCellWithReuseIdentifier: "FilmCollectionCell")
         self.collectionView.register(UINib(nibName: "FilmCollectionViewHeader", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "FilmCollectionViewHeader")
+        setStyle()
     }
     
     func setStyle() {
-        noElementLabel.text = "No elements"
-        noElementLabel.font = UIFont.systemFont(ofSize: 16)
+        view.backgroundColor = ColorStyle.mainBackground.color()
+        self.collectionView.backgroundColor = ColorStyle.mainBackground.color()
+        noElementLabel.text = "NO_ELEMENTS".localizable
+        noElementLabel.font = FontStyle.subTitle.font()
+        noElementLabel.textColor = .white
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.sectionHeadersPinToVisibleBounds = true
+        }
     }
     
     func reloadData() {
@@ -75,8 +80,22 @@ extension FilmCollectionViewVC: UICollectionViewDataSource, UICollectionViewDele
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let film = films[indexPath.row]
+        
+        if let filmDetailVC = storyboard?.instantiateViewController(withIdentifier: "FilmDetailVC") as? FilmDetailVC {
+            filmDetailVC.configure(film: film)
+            present(filmDetailVC, animated: true)
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: widthCell, height: heightCell)
+        let numberOfItemsPerRow: CGFloat = 2
+        let totalSpacing = (numberOfItemsPerRow - 1) * spacing // Espaciado entre ítems
+        let totalWidth = collectionView.bounds.width - totalSpacing
+        let itemWidth = totalWidth / numberOfItemsPerRow
+        let itemHeight: CGFloat = itemWidth * 1.5
+        return CGSize(width: itemWidth, height: itemHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -88,26 +107,17 @@ extension FilmCollectionViewVC: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let totalCellWidth = widthCell * numberOfItemsPerRow()
-        let totalSpacingWidth = 10 * (numberOfItemsPerRow() - 1)
-        let leftInset = (collectionView.frame.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
-        let rightInset = leftInset
-        return UIEdgeInsets(top: 10, left: leftInset, bottom: 10, right: rightInset)
-    }
-    
-    private func numberOfItemsPerRow() -> Int {
-        let availableWidth = collectionView.frame.width - 20 // Restar el padding de izquierda y derecha (10 cada uno)
-        return Int(availableWidth / 110) // 100 para el ancho de la celda + 10 para el espacio mínimo entre celdas
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "FilmCollectionViewHeader", for: indexPath) as! FilmCollectionViewHeader
-        headerView.titleLabel.text = kindList == .popular ? "Populares" : "Busqueda"
+        headerView.configure(kindList: kindList)
         return headerView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.width, height: 50) // Ajusta el tamaño de la cabecera según sea necesario
+        return CGSize(width: collectionView.frame.width, height: films.count > 0 ? 50 : 0)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -116,8 +126,8 @@ extension FilmCollectionViewVC: UICollectionViewDataSource, UICollectionViewDele
         let height = scrollView.frame.size.height
         
         if offsetY > contentHeight - height {
-            if !delegate!.isLoading {
-                delegate?.loadMoreData()
+            if !delegate!.isLoading && kindList != .search {
+                delegate?.loadMoreData(kindList: kindList)
             }
         }
     }

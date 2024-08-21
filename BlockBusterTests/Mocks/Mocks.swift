@@ -39,6 +39,16 @@ let mockFilmModel = FilmModel.init(isAdult: false,
 var mockDatasource: [FilmModel] = []
 
 struct FetchPopularFilmsUseCaseMock: FetchPopularFilmsProtocol {
+    func fetchPopularFilms() async throws -> BlockBuster.FilmDataModel? {
+        let filmDataModel = FilmDataModel(page: 1, results: [mockFilmResult], totalPages: 5, totalResults: 50)
+        return filmDataModel
+    }
+    
+    func loadMoreFilms(nextPage: Int) async throws -> BlockBuster.FilmDataModel? {
+        let filmDataModel = FilmDataModel(page: 1, results: [mockFilmResult], totalPages: 1, totalResults: 1)
+        return filmDataModel
+    }
+    
     func fetchPopularFilms() async throws -> [BlockBuster.FilmModel] {
         let films = [
             FilmModel.init(isAdult: false, 

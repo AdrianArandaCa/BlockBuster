@@ -29,7 +29,7 @@ class FilmTableViewVC: UIViewController {
     }
     
     func setStyle() {
-        noElementLabel.text = "No elements"
+        noElementLabel.text = "NO_ELEMENTS".localizable
         noElementLabel.font = UIFont.systemFont(ofSize: 16)
     }
     

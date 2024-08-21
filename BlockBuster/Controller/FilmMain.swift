@@ -39,19 +39,41 @@ class FilmMain: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initChilds()
+        setStyle()
         fillData()
+        if let items = tabBar.items {
+                    for item in items {
+                        item.imageInsets = UIEdgeInsets(top: 10, left: 0, bottom: -10, right: 0)
+                        item.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 10)
+                    }
+                }
+    }
+    
+    func setStyle() {
+        tabBar.itemPositioning = .centered
+        if let tabBarItems = self.tabBar.items {
+            let homeItem = tabBarItems[0]
+            homeItem.image = UIImage(systemName: "house")
+            homeItem.title = "HOME".localizable
+            
+            let searchItem = tabBarItems[1]
+            searchItem.image = UIImage(systemName: "magnifyingglass")
+            searchItem.title = "SEARCH".localizable
+        }
+        
+        self.tabBar.tintColor = UIColor.white
+        self.tabBar.unselectedItemTintColor = ColorStyle.unselectedItem.color()
+        self.tabBar.itemPositioning = .centered
     }
     
     func initChilds() {
-        if let firstVC = viewControllers?[0] as? FilmSearchVC {
-            filmSearchVC = firstVC
-            filmSearchVC?.delegate = self
-        }
-        if let secondVC = viewControllers?[1] as? FilmCollectionViewVC {
+        if let secondVC = viewControllers?[0] as? FilmCollectionViewVC {
             filmCollectionViewVC = secondVC
             filmCollectionViewVC?.delegate = self
-//            filmTableViewVC = secondVC
-//            filmTableViewVC?.delegate = self
+        }
+        if let firstVC = viewControllers?[1] as? FilmSearchVC {
+            filmSearchVC = firstVC
+            filmSearchVC?.delegate = self
         }
     }
     
@@ -98,15 +120,15 @@ class FilmMain: UITabBarController {
 
 extension FilmMain: FilmSearchDelegate {
     func searchFilm(name: String) {
-        guard name != "", let filmCollectionViewVC = filmCollectionViewVC else { return }
+        guard name != "", let filmSearchVC = filmSearchVC/*, let filmCollectionViewVC = filmCollectionViewVC*/ else { return }
         Task {
             do {
                 var films = try await getFilmUseCase.getFilm(name: name, isAdult: true)
                 for (index, film) in films.enumerated() {
                     films[index].image = try await getImage(film: film)
                 }
-                self.selectedViewController = filmCollectionViewVC
-                filmCollectionViewVC.configure(films: films, kindList: .search)
+                self.selectedViewController = filmSearchVC
+                filmSearchVC.configure(films: films, kindList: .search)
 //                self.selectedViewController = filmTableViewVC
 //                filmTableViewVC.configure(films: films)
             } catch {
@@ -121,9 +143,9 @@ extension FilmMain: FilmCollectionViewDelegate {
         
     }
     
-    func loadMoreData() {
-        isLoading = true
+    func loadMoreData(kindList: FilmKindList) {
         guard let filmCollectionViewVC = filmCollectionViewVC, let filmData = self.filmData else { return }
+        isLoading = true
         Task {
             do {
                 let nextPage = filmData.page + 1
@@ -134,7 +156,7 @@ extension FilmMain: FilmCollectionViewDelegate {
                             films[index].image = try await getImage(film: film)
                         }
                         self.filmData = moreFilmData
-                        filmCollectionViewVC.addMoreData(films: films, kindList: .popular)
+                        filmCollectionViewVC.addMoreData(films: films, kindList: kindList)
                         isLoading = false
                     } else {
                         return
